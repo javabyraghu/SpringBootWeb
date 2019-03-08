@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" />
+<script type="text/javascript"
+	th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/js/npm.js}"></script>
+</head>
+<body>
+	<div class="container">
+
+		<div class="card">
+			<div class="card-header bg-primary text-white">
+				<h3>Welcome to Student Register Page</h3>
+			</div>
+			<div class="card-body"></div>
+
+
+			<form action="#" th:action="@{/student/register}"
+				th:object="${student}" method="post" class="form-horizontal">
+
+				<input type="hidden" th:field="*{stdId}" />
+
+
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="stdName">STUDENT
+						NAME</label>
+					<div class="col-sm-6">
+						<input type="text" th:field="*{stdName}" class="form-control"
+							placeholder="Enter Student Name" />
+					</div>
+				</div>
+
+
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="stdGen">STUDENT
+						GENDER</label>
+					<div class="form-control col-sm-2">
+						<label class="radio-inline"><input type="radio"
+							th:field="*{stdGen}" value="Male"> Male</label> <label
+							class="radio-inline"><input type="radio"
+							th:field="*{stdGen}" value="Female"> Female</label>
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<label for="stdCourse" class="control-label col-sm-2">CHOOSE
+						COURSE</label>
+					<div class="col-sm-6">
+						<select class="form-control" th:field="*{stdCourse}">
+							<option th:value="' '" th:text="SELECT"></option>
+							<option th:value="'Core Java'" th:text="Core-Java"></option>
+							<option th:value="'Adv Java'" th:text="Advanced-Java"></option>
+							<option th:value="'Spring'" th:text="Spring-Framework"></option>
+							<option th:value="'Boot'" th:text="Spring-Boot"></option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="stdAddr" class="control-label col-sm-2">ADDRESS</label>
+					<div class="col-sm-6">
+						<textarea th:field="*{stdAddr}" class="form-control"></textarea>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="stdLangs" class="control-label col-sm-2">LANGUAGES</label>
+					<div class="form-control col-sm-4">
+					 <input type="checkbox" th:field="*{stdLangs}" value="ENG" />English
+					<input type="checkbox" th:field="*{stdLangs}" value="HIN" />Hindi
+					<input type="checkbox" th:field="*{stdLangs}" value="TEL" />Telugu
+					<input type="checkbox" th:field="*{stdLangs}" value="TAM" />Tamil
+					</div>
+
+				</div>
+
+
+				<input type="submit" value="[ Submit Your Data ]"
+					class="col-offset-3 btn btn-success" />
+			</form>
+
+			<div class="card-footer bg-info text-white"
+				th:if="${message != null}">
+				<strong> <span th:text="${message}"></span>
+				</strong>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

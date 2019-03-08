@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>Students Data</h2>
+	<div th:if="${#lists.isEmpty(list)}">No Data Founds</div>
+	<div th:if="${not #lists.isEmpty(list)}">
+		<table border="1">
+			<tr>
+				<td>ID</td>
+				<td>NAME</td>
+				<td>GENDER</td>
+				<td>COURSE</td>
+				<td>ADDRESS</td>
+				<td>LANGUAGES</td>
+			</tr>
+			<tr th:each="ob:${list}">
+				<td th:text="${ob.stdId}"></td>
+				<td th:text="${ob.stdName}"></td>
+				<td th:text="${ob.stdGen}"></td>
+				<td th:text="${ob.stdCourse}"></td>
+				<td th:text="${ob.stdAddr}"></td>
+				<td th:text="${ob.stdLangs}"></td>
+				<td><a th:href="@{/student/delete/{id}(id=${ob.stdId})}">DELETE</a></td>
+				<td><a th:href="@{/student/edit/{id}(id=${ob.stdId})}">EDIT</a></td>
+				
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
