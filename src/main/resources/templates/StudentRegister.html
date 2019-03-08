@@ -14,6 +14,23 @@
 <body>
 	<div class="container">
 
+
+		<nav class="navbar navbar-expand-sm bg-dark navbar-light">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link text-white"
+					th:href="@{/student/register}">
+						<h4>REGISTER</h4>
+				</a></li>
+				<li class="nav-item"><a class="nav-link text-white"
+					th:href="@{/student/all}">
+						<h4>VIEW ALL</h4>
+				</a></li>
+			</ul>
+		</nav>
+
+
+
+
 		<div class="card">
 			<div class="card-header bg-primary text-white">
 				<h3>Welcome to Student Register Page</h3>
@@ -75,10 +92,10 @@
 				<div class="form-group">
 					<label for="stdLangs" class="control-label col-sm-2">LANGUAGES</label>
 					<div class="form-control col-sm-4">
-					 <input type="checkbox" th:field="*{stdLangs}" value="ENG" />English
-					<input type="checkbox" th:field="*{stdLangs}" value="HIN" />Hindi
-					<input type="checkbox" th:field="*{stdLangs}" value="TEL" />Telugu
-					<input type="checkbox" th:field="*{stdLangs}" value="TAM" />Tamil
+						<input type="checkbox" th:field="*{stdLangs}" value="ENG" />English
+						<input type="checkbox" th:field="*{stdLangs}" value="HIN" />Hindi
+						<input type="checkbox" th:field="*{stdLangs}" value="TEL" />Telugu
+						<input type="checkbox" th:field="*{stdLangs}" value="TAM" />Tamil
 					</div>
 
 				</div>

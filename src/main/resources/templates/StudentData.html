@@ -1,34 +1,65 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" />
+<script type="text/javascript"
+	th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/js/npm.js}"></script>
 </head>
 <body>
-	<h2>Students Data</h2>
-	<div th:if="${#lists.isEmpty(list)}">No Data Founds</div>
-	<div th:if="${not #lists.isEmpty(list)}">
-		<table border="1">
-			<tr>
-				<td>ID</td>
-				<td>NAME</td>
-				<td>GENDER</td>
-				<td>COURSE</td>
-				<td>ADDRESS</td>
-				<td>LANGUAGES</td>
-			</tr>
-			<tr th:each="ob:${list}">
-				<td th:text="${ob.stdId}"></td>
-				<td th:text="${ob.stdName}"></td>
-				<td th:text="${ob.stdGen}"></td>
-				<td th:text="${ob.stdCourse}"></td>
-				<td th:text="${ob.stdAddr}"></td>
-				<td th:text="${ob.stdLangs}"></td>
-				<td><a th:href="@{/student/delete/{id}(id=${ob.stdId})}">DELETE</a></td>
-				<td><a th:href="@{/student/edit/{id}(id=${ob.stdId})}">EDIT</a></td>
-				
-			</tr>
-		</table>
+	<div class="container">
+
+		<nav class="navbar navbar-expand-sm bg-dark navbar-light">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link text-white" th:href="@{/student/register}">
+				<h4> REGISTER </h4>
+				</a></li>
+				<li class="nav-item"><a class="nav-link text-white" th:href="@{/student/all}">
+				<h4> VIEW ALL </h4>
+				</a></li>
+			</ul>
+		</nav>
+
+
+
+		<div class="card">
+			<div class="card-header bg-primary text-white">
+				<h2>Welcome to Students Data Page!</h2>
+			</div>
+			<div class="card-body">
+
+				<div th:if="${#lists.isEmpty(list)}">No Data Founds</div>
+				<div th:if="${not #lists.isEmpty(list)}">
+					<table class="table table-bordered table-hover">
+						<tr class="bg-dark text-white">
+							<td>ID</td>
+							<td>NAME</td>
+							<td>GENDER</td>
+							<td>COURSE</td>
+							<td>ADDRESS</td>
+							<td>LANGUAGES</td>
+							<td colspan="2">OPERATIONS</td>
+						</tr>
+						<tr th:each="ob:${list}">
+							<td th:text="${ob.stdId}"></td>
+							<td th:text="${ob.stdName}"></td>
+							<td th:text="${ob.stdGen}"></td>
+							<td th:text="${ob.stdCourse}"></td>
+							<td th:text="${ob.stdAddr}"></td>
+							<td th:text="${ob.stdLangs}"></td>
+							<td><a th:href="@{/student/delete/{id}(id=${ob.stdId})}">DELETE</a></td>
+							<td><a th:href="@{/student/edit/{id}(id=${ob.stdId})}">EDIT</a></td>
+
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
